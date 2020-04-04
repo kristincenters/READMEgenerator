@@ -1,31 +1,23 @@
-const fs = require('fs');
+require('dotenv').config();
 const axios = require('axios');
 const inquirer = require('inquirer');
 
-inquirer
-	.prompt([
-		{
-			type: 'input',
-			message: 'What is your user name?',
-			name: 'username',
-		},
-	])
-	.then(function ({ username }) {
-		const queryUrl = `https://api.github.com/users/${username}/repos?per_page=20`;
-
-		axios.get(queryUrl).then(function (res) {
-			const repoNames = res.data.map(function (repo) {
-				return repo.name;
-			});
-
-			const repoNamesStr = repoNames.join('\n');
-
-			fs.writeFile('repos.txt', repoNamesStr, function (err) {
-				if (err) {
-					throw err;
-				}
-
-				console.log(`Saved ${repoNames.length} repos`);
-			});
-		});
-	});
+//inquirer.prompt([
+//	{
+//		type: 'input',
+//		message: 'What is your user name?',
+//		name: 'username',
+//	},
+//]);
+const githubApi = {
+	getUser(username) {
+		axios
+			.get(`https://api.github.com/users/${username}`, {
+				headers: { Authorization: `token ${process.env.GH_TOKEN}` },
+			})
+			.then((response) => console.log(response.data))
+			.catch((error) => console.log(error));
+	},
+};
+githubApi.getUser('kristincenters');
+module.exports = githubApi;
