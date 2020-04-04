@@ -19,6 +19,8 @@
   "homepage": "https://github.com/kristincenters/READMEgenerator#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "badges": "^4.0.0",
+    "dotenv": "^8.2.0",
     "inquirer": "^7.1.0"
   }
 }
