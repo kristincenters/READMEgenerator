@@ -60,7 +60,7 @@ inquirer
 	])
 	.then(function (response) {
 		console.log(response);
-		const newREADME = `# Project Title: ${response.project} <br /> ## Description: <br /> *${response.description}*`;
+		const newREADME = `# Project Title: ${response.project} <br /> ## Description: <br /> ${response.description}`;
 		fs.writeFile('newREADME.md', newREADME, function (err) {
 			if (err) {
 				return console.log(error);
