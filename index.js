@@ -50,21 +50,19 @@ inquirer
 	])
 	.then(function (response) {
 		console.log(response);
-		const newREADME = `
-        ## Project Title
-        ${response.project} 
-        
+		//const userName = response.user;
+		//const projectTitle = response.project;
+		const newREADME = `## ${response.project} 
         ## Description 
         ${response.description}
         
         ## Table of Contents
 
-        Unordered
-        * Installation
-        +${response.install}
+        - Installation
+        ${response.install}
 
-        * Usage
-        +${response.usage}`;
+        - Usage
+        ${response.usage}`;
 
 		fs.writeFile('newREADME.md', newREADME, function (err) {
 			if (err) {
