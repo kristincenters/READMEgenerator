@@ -8,6 +8,11 @@ inquirer
 	.prompt([
 		{
 			type: 'input',
+			name: 'username',
+			message: 'What is your GitHub User Name?',
+		},
+		{
+			type: 'input',
 			name: 'project',
 			message: 'What is your name of your project?',
 		},
@@ -49,9 +54,17 @@ inquirer
 		},
 	])
 	.then(function (response) {
-		console.log(response);
-		//const userName = response.user;
-		//const projectTitle = response.project;
+		const githubApi = {
+			getUser(username) {
+				const queryUrl = `https://api.github.com/users/${username}`;
+				axios.get(queryUrl),
+					{
+						headers: { Authorization: `token ${process.env.GH_TOKEN}` },
+					}
+						.then((response) => console.log(response.data))
+						.catch((error) => console.log(error));
+			},
+		};
 		const newREADME = `## ${response.project} 
         ## Description 
         ${response.description}
