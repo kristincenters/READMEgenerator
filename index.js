@@ -66,16 +66,17 @@ inquirer
 			},
 		};
 		const newREADME = `## ${response.project} 
-        ## Description 
-        ${response.description}
         
-        ## Table of Contents
+## Description 
+${response.description}
+        
+## Table of Contents: 
 
-        - Installation
-        ${response.install}
+- Installation
+> ${response.install}
 
-        - Usage
-        ${response.usage}`;
+- Usage
+${response.usage}`;
 
 		fs.writeFile('newREADME.md', newREADME, function (err) {
 			if (err) {
