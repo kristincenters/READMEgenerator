@@ -23,18 +23,8 @@ inquirer
 		},
 		{
 			type: 'input',
-			name: 'install',
-			message: 'What command is needed to install dependencies?',
-		},
-		{
-			type: 'input',
 			name: 'usage',
 			message: 'What does the user need to know about using this app?',
-		},
-		{
-			type: 'input',
-			name: 'usage',
-			message: 'What does the user need to know when using this app?',
 		},
 		{
 			type: 'checkbox',
@@ -60,7 +50,22 @@ inquirer
 	])
 	.then(function (response) {
 		console.log(response);
-		const newREADME = `# Project Title: ${response.project} <br /> ## Description: <br /> ${response.description}`;
+		const newREADME = `
+        ## Project Title
+        ${response.project} 
+        
+        ## Description 
+        ${response.description}
+        
+        ## Table of Contents
+
+        Unordered
+        * Installation
+        +${response.install}
+
+        * Usage
+        +${response.usage}`;
+
 		fs.writeFile('newREADME.md', newREADME, function (err) {
 			if (err) {
 				return console.log(error);
