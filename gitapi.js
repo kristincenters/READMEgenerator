@@ -1,6 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
-const inquirer = require('inquirer');
+//const inquirer = require('inquirer');
 
 //inquirer.prompt([
 //	{

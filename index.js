@@ -1,8 +1,9 @@
 require('dotenv').config();
 const fs = require('fs');
 const inquirer = require('inquirer');
-const axios = require('axios');
-const badges = require('badges');
+//const axios = require('axios');
+//const badges = require('badges');
+const gitapi = require('./gitapi.js');
 
 inquirer
 	.prompt([
@@ -47,23 +48,17 @@ inquirer
 			name: 'test',
 			message: 'How can the user test this application',
 		},
-		{
-			type: 'input',
-			name: 'test',
-			message: 'How can the user test this application',
-		},
 	])
 	.then(function (response) {
-		const githubApi = {
-			getUser(username) {
-				const queryUrl = `https://api.github.com/users/${username}`;
-				axios.get(queryUrl),
-					{
-						headers: { Authorization: `token ${process.env.GH_TOKEN}` },
-					}
-						.then((response) => console.log(response.data))
-						.catch((error) => console.log(error));
-			},
+		const generateResponse = {
+			username: response.username,
+			project: response.project,
+			description: response.description,
+			install: response.install,
+			usage: response.usage,
+			license: response.license,
+			contribute: response.contribute,
+			test: response.test,
 		};
 		const newREADME = `## ${response.project} 
         
@@ -73,15 +68,29 @@ ${response.description}
 ## Table of Contents: 
 
 - Installation
-> ${response.install}
+>> ${response.install}
 
 - Usage
-${response.usage}`;
+>>${response.usage}
 
+- License
+>>${response.license}
+
+- Contributors
+>>${response.contribute}
+
+- Testing
+>>${response.test}
+
+## Contact
+<img src="${response.avatar_url}">
+### For information or additional question, contact ${response.login} at ${response.email}
+
+`;
 		fs.writeFile('newREADME.md', newREADME, function (err) {
 			if (err) {
 				return console.log(error);
 			}
-			console.log('success');
 		});
 	});
+console.log(gitapi.getUser);
