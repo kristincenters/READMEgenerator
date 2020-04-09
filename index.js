@@ -54,8 +54,8 @@ const queries = inquirer
 		getapi
 			.getUser(queries.username)
 			.then((response) => {
-				genMD(queries, response.input);
-				const markdown = genMD(queries, response.input);
+				genMD(queries, response.data);
+				const markdown = genMD(queries, response.data);
 				fs.writeFile('./newREADME.md', markdown, () => {
 					console.log('works!');
 				});
