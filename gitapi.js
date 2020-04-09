@@ -1,23 +1,17 @@
 require('dotenv').config();
 const axios = require('axios');
-//const inquirer = require('inquirer');
-
-//inquirer.prompt([
-//	{
-//		type: 'input',
-//		message: 'What is your user name?',
-//		name: 'username',
-//	},
-//]);
-const githubApi = {
+const gitapi = {
 	getUser(username) {
 		axios
 			.get(`https://api.github.com/users/${username}`, {
 				headers: { Authorization: `token ${process.env.GH_TOKEN}` },
 			})
-			.then((response) => console.log(response.data))
+			.then(function (res) {
+				console.log(res.data.avatar_url);
+				console.log(res.data.email);
+			})
 			.catch((error) => console.log(error));
 	},
 };
-githubApi.getUser('kristincenters');
-module.exports = githubApi;
+gitapi.getUser('kristincenters');
+module.exports = gitapi;

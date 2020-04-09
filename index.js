@@ -1,23 +1,26 @@
 require('dotenv').config();
 const fs = require('fs');
 const inquirer = require('inquirer');
-//const axios = require('axios');
-//const badges = require('badges');
-const gitapi = require('./gitapi.js');
+const util = require('util');
+const axios = require('axios');
+//const getapi = require('./gitapi.js');
 
-inquirer
-	.prompt([
-		{
-			type: 'input',
-			name: 'username',
-			message: 'What is your GitHub User Name?',
-		},
-		{
-			type: 'input',
-			name: 'project',
-			message: 'What is your name of your project?',
-		},
-		{
+const writeFileAsync = util.promisify(fs.writeFile);
+
+function promptUser() {
+	return inquirer
+		.prompt([
+			{
+				type: 'input',
+				name: 'username',
+				message: 'What is your GitHub User Name?',
+			},
+			{
+				type: 'input',
+				name: 'project',
+				message: 'What is your name of your project?',
+			},
+			/*		{
 			type: 'input',
 			name: 'description',
 			message: 'Describe your project?',
@@ -47,50 +50,52 @@ inquirer
 			type: 'input',
 			name: 'test',
 			message: 'How can the user test this application',
-		},
-	])
-	.then(function (response) {
-		const generateResponse = {
-			username: response.username,
-			project: response.project,
-			description: response.description,
-			install: response.install,
-			usage: response.usage,
-			license: response.license,
-			contribute: response.contribute,
-			test: response.test,
-		};
-		const newREADME = `## ${response.project} 
-        
+		},*/
+		])
+		.then(function (user) {
+			//console.log(user);
+			const username = user.username;
+
+			axios
+				.get(`https://api.github.com/users/${username}`, {
+					headers: { Authorization: `token ${process.env.GH_TOKEN}` },
+				})
+
+				.then((user) => {
+					console.log(user.data.avatar_url);
+					console.log(user.data.email);
+				})
+				.catch(function (err) {
+					console.log(err);
+				});
+		});
+}
+function generateREADME(response) {
+	const project = response.project;
+	response.description;
+	return `
+## Project 
+${response.project}
+
 ## Description 
 ${response.description}
         
 ## Table of Contents: 
 
-- Installation
->> ${response.install}
+## Contact `;
+}
 
-- Usage
->>${response.usage}
+async function init() {
+	try {
+		const response = await promptUser();
 
-- License
->>${response.license}
+		const readme = generateREADME(response);
 
-- Contributors
->>${response.contribute}
+		await writeFileAsync('newREADME.md', readme);
 
-- Testing
->>${response.test}
-
-## Contact
-<img src="${response.avatar_url}">
-### For information or additional question, contact ${response.login} at ${response.email}
-
-`;
-		fs.writeFile('newREADME.md', newREADME, function (err) {
-			if (err) {
-				return console.log(error);
-			}
-		});
-	});
-console.log(gitapi.getUser);
+		console.log('Successfully wrote readme');
+	} catch (err) {
+		console.log(err);
+	}
+}
+init();
