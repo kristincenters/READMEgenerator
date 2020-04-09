@@ -1,21 +1,20 @@
-function buildMD(input, response) {
-	console.log(input, response);
+function buildMD(data) {
 	return `
 
 ![Badge](https://img.shields.io/static/v1?label=GitHub_User&message=kristincenters&color=<COLOR>?style=plastic)
 
-## ${input.project}
+## ${data.project}
 
 ## Description
 
-> ${input.description}
+> ${data.description}
 
 ## Table of Contents
 
 <details>
   <summary>Installation</summary>
 
-> ${input.install}
+> ${data.install}
 
 </details>
 <br>
@@ -23,7 +22,7 @@ function buildMD(input, response) {
 
   <summary>Usage</summary>
 
-> ${input.usage}
+> ${data.usage}
 
 </details>
 <br>
@@ -31,7 +30,7 @@ function buildMD(input, response) {
 
   <summary>License</summary>
 
-> ${input.license}
+> ${data.license}
 
 </details>
 <br>
@@ -39,7 +38,7 @@ function buildMD(input, response) {
 
   <summary>Contributors</summary>
 
-> ${input.contribute}
+> ${data.contribute}
 
 </details>
 <br>
@@ -47,15 +46,15 @@ function buildMD(input, response) {
 
   <summary>Testing</summary>
   
->${input.test}
+>${data.test}
   
 </details>
 <br>
 
 ## Contact me with questions
 
-<img style="border-radius: 50%" src="${res.data.avatar_url}" alt="github headshot">
+<img style="border-radius: 50%" src="${data.avatar_url}" alt="github headshot">
 
-### Email: ${res.data.email}`;
+### Email: ${data.email}`;
 }
 module.exports = buildMD;
