@@ -2,7 +2,7 @@
 
 ![Badge](https://img.shields.io/static/v1?label=GitHub_User&message=kristincenters&color=<COLOR>?style=plastic)
 
-## test
+## test 4
 
 ## Description
 
@@ -52,6 +52,6 @@
 
 ## Contact me with questions
 
-<img style="border-radius: 50%" src="https://avatars0.githubusercontent.com/u/5201511?v=4" alt="github headshot">
+<img style="border-radius: 50%" src="undefined" alt="github headshot">
 
-### Email: kristincenters@gmail.com
+### Email: undefined

@@ -53,8 +53,8 @@ function buildMD(data, response) {
 
 ## Contact me with questions
 
-<img style="border-radius: 50%" src="${response.avatar_url}" alt="github headshot">
+<img style="border-radius: 50%" src="${data.avatar_url}" alt="github headshot">
 
-### Email: ${response.email}`;
+### Email: ${data.email}`;
 }
 module.exports = buildMD;
