@@ -3,24 +3,21 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const util = require('util');
 const axios = require('axios');
-//const getapi = require('./gitapi.js');
-
-const writeFileAsync = util.promisify(fs.writeFile);
-
-function promptUser() {
-	return inquirer
-		.prompt([
-			{
-				type: 'input',
-				name: 'username',
-				message: 'What is your GitHub User Name?',
-			},
-			{
-				type: 'input',
-				name: 'project',
-				message: 'What is your name of your project?',
-			},
-			/*		{
+const getapi = require('./gitapi.js');
+const genMD = require('./buildMD');
+const queries = inquirer
+	.prompt([
+		{
+			type: 'input',
+			name: 'username',
+			message: 'What is your GitHub User Name?',
+		},
+		{
+			type: 'input',
+			name: 'project',
+			message: 'What is your name of your project?',
+		},
+		/*		{
 			type: 'input',
 			name: 'description',
 			message: 'Describe your project?',
@@ -51,51 +48,20 @@ function promptUser() {
 			name: 'test',
 			message: 'How can the user test this application',
 		},*/
-		])
-		.then(function (user) {
-			//console.log(user);
-			const username = user.username;
-
-			axios
-				.get(`https://api.github.com/users/${username}`, {
-					headers: { Authorization: `token ${process.env.GH_TOKEN}` },
-				})
-
-				.then((user) => {
-					console.log(user.data.avatar_url);
-					console.log(user.data.email);
-				})
-				.catch(function (err) {
-					console.log(err);
+	])
+	.then((queries) => {
+		console.log(queries);
+		getapi
+			.getUser(queries.username)
+			.then((response) => {
+				genMD(queries, response.input);
+				const markdown = genMD(queries, response.input);
+				fs.writeFile('./newREADME.md', markdown, () => {
+					console.log('works!');
 				});
-		});
-}
-function generateREADME(response) {
-	const project = response.project;
-	response.description;
-	return `
-## Project 
-${response.project}
-
-## Description 
-${response.description}
-        
-## Table of Contents: 
-
-## Contact `;
-}
-
-async function init() {
-	try {
-		const response = await promptUser();
-
-		const readme = generateREADME(response);
-
-		await writeFileAsync('newREADME.md', readme);
-
-		console.log('Successfully wrote readme');
-	} catch (err) {
-		console.log(err);
-	}
-}
-init();
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	});
+module.exports = queries;
