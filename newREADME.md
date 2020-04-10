@@ -53,6 +53,6 @@ Forking the repo
 
 ## Contact me with questions
 
-<img style="border-radius: 50%" src="https://www.linkedin.com/in/kristincenters/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B68ZYpVSoTT6e0i3UOXuQ3A%3D%3D" alt="github headshot">
+<img style="border-radius: 50%" https://www.linkedin.com/in/kristincenters/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B68ZYpVSoTT6e0i3UOXuQ3A%3D%3D alt="github headshot">
 
 ### Email: kristincenters@gmail.com
