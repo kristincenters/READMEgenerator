@@ -21,7 +21,7 @@ The application allows developers to craft a quality README document with ease. 
 
   <summary>Usage</summary>
 
-> undefined
+> Clone repo, secure git api token and install packages axios, inquirer and dotenv',
 
 </details>
 <br>
@@ -29,7 +29,7 @@ The application allows developers to craft a quality README document with ease. 
 
   <summary>License</summary>
 
-> >undefined
+> MIT
 
 
 </details>
