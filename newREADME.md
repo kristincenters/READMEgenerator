@@ -2,11 +2,11 @@
 
 ![Badge](https://img.shields.io/static/v1?label=GitHub_User&message=kristincenters&color=<COLOR>?style=plastic)
 
-## test
+## README Generator
 
 ## Description
 
-> undefined
+The application allows developers to craft a quality README document with ease. Once initialized the application functions as a template and will prompt you with questions. When complete and executed, it will dynamically generate a new README file for your next project.
 
 ## Table of Contents
 
