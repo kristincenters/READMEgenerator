@@ -1,10 +1,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const inquirer = require('inquirer');
-//const util = require('util');
 const axios = require('axios');
-//const getapi = require('./gitapi.js');
-//const genMD = require('./buildMD');
 inquirer.prompt([
 	{
 		type: 'input',
@@ -123,7 +120,7 @@ const gitapi = {
 
 #### ${username}
 			
-<img style="border-radius: 50%" src="${image}" alt="github headshot">
+<img style="border-radius: 50%" width="100px" height="100px" src="${image}" alt="github headshot">
 			
 ### Email: ${email}`;
 
@@ -135,8 +132,7 @@ const gitapi = {
 			})
 			.catch(function (error) {
 				console.log(error);
-
-				console.log('success!');
 			});
+		console.log('success!');
 	},
 };
