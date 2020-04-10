@@ -13,7 +13,7 @@ The application allows developers to craft a quality README document with ease. 
 <details>
   <summary>Installation</summary>
 
-> undefined
+> npm i or install
 
 </details>
 <br>
@@ -29,7 +29,8 @@ The application allows developers to craft a quality README document with ease. 
 
   <summary>License</summary>
 
-> undefined
+> >undefined
+
 
 </details>
 <br>
@@ -37,7 +38,7 @@ The application allows developers to craft a quality README document with ease. 
 
   <summary>Contributors</summary>
 
-> undefined
+> Clone the reop and follow instructions
 
 </details>
 <br>
@@ -45,13 +46,13 @@ The application allows developers to craft a quality README document with ease. 
 
   <summary>Testing</summary>
   
->undefined
+Forking the repo
   
 </details>
 <br>
 
 ## Contact me with questions
 
-<img style="border-radius: 50%" src="undefined" alt="github headshot">
+<img style="border-radius: 50%" src="https://www.linkedin.com/in/kristincenters/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B68ZYpVSoTT6e0i3UOXuQ3A%3D%3D" alt="github headshot">
 
-### Email: undefined
+### Email: kristincenters@gmail.com
