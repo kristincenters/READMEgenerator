@@ -17,7 +17,7 @@ const queries = inquirer
 			name: 'project',
 			message: 'What is your name of your project?',
 		},
-		/*		{
+		{
 			type: 'input',
 			name: 'description',
 			message: 'Describe your project?',
@@ -47,7 +47,7 @@ const queries = inquirer
 			type: 'input',
 			name: 'test',
 			message: 'How can the user test this application',
-		},*/
+		},
 	])
 	.then((queries) => {
 		console.log(queries);

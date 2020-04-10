@@ -3,18 +3,18 @@ function buildMD(data, response) {
 
 ![Badge](https://img.shields.io/static/v1?label=GitHub_User&message=kristincenters&color=<COLOR>?style=plastic)
 
-## ${data.project}
+## My next great project
 
 ## Description
 
-> ${data.description}
+> This project will help developers save and improve workflow with this easy app to crete a README document.
 
 ## Table of Contents
 
 <details>
   <summary>Installation</summary>
 
-> ${data.install}
+> $npm i or install
 
 </details>
 <br>
@@ -22,7 +22,7 @@ function buildMD(data, response) {
 
   <summary>Usage</summary>
 
-> ${data.usage}
+> Clone repo, secure git api token and install packages axios, inquirer and dotenv
 
 </details>
 <br>
@@ -30,7 +30,7 @@ function buildMD(data, response) {
 
   <summary>License</summary>
 
-> ${data.license}
+> MIT
 
 </details>
 <br>
@@ -38,7 +38,7 @@ function buildMD(data, response) {
 
   <summary>Contributors</summary>
 
-> ${data.contribute}
+> Clone the reop and follow instructions
 
 </details>
 <br>
@@ -46,15 +46,15 @@ function buildMD(data, response) {
 
   <summary>Testing</summary>
   
->${data.test}
+>Forking the repo.
   
 </details>
 <br>
 
 ## Contact me with questions
 
-<img style="border-radius: 50%" src="${response.data.avatar_url}" alt="github headshot">
+<img style="border-radius: 50%" src="https://media-exp1.licdn.com/dms/image/C4D03AQFr3xBNZNkpGg/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=_vL8lyTj3WL5RiHrvf_Fsr7Eye2lDOjLbN9MAry13HM" alt="github headshot">
 
-### Email: ${response.data.email}`;
+### Email: Kristin.centers@gmail.com`;
 }
 module.exports = buildMD;
