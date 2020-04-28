@@ -64,12 +64,12 @@ const gitapi = {
 				const contribute = response.contribute;
 				const test = response.test;
 			})
-	}	
+	}
 }
 gitapi.getUser();
 
-function readmeMD (input)
-				const markdown = `
+function readmeMD(input)
+const markdown = `
 
 ![Badge](https://img.shields.io/static/v1?label=GitHub_User&message=kristincenters&color=<COLOR>?style=plastic)
 			
@@ -130,18 +130,15 @@ function readmeMD (input)
 ### Email: ${email}`;
 
 
-				fs.writeFile('newREADME.md', markdown, (err) => {
-					if (err) {
-						return console.log(err);
-					}
-				})
-			
+fs.writeFile('newREADME.md', markdown, (err) => {
+	if (err) {
+		return console.log(err);
+	}
+})
+
 
 			//.catch(function (error) {
 			//	console.log(error);
 			//});
-			//console.log('success!');
-		}
-		)
-	}
-		
+
+
