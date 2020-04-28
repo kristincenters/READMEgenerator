@@ -53,7 +53,7 @@ const gitapi = {
 				headers: { Authorization: `token ${process.env.GH_TOKEN}` },
 			})
 			.then(function (response) {
-				const username = res.username;
+				const username = response.data.username;
 				const image = response.data.avatar_url;
 				const email = response.data.email;
 				const project = response.project;
@@ -63,7 +63,12 @@ const gitapi = {
 				const license = response.license;
 				const contribute = response.contribute;
 				const test = response.test;
+			})
+	}	
+}
+gitapi.getUser();
 
+function readmeMD (input)
 				const markdown = `
 
 ![Badge](https://img.shields.io/static/v1?label=GitHub_User&message=kristincenters&color=<COLOR>?style=plastic)
@@ -124,15 +129,19 @@ const gitapi = {
 			
 ### Email: ${email}`;
 
+
 				fs.writeFile('newREADME.md', markdown, (err) => {
 					if (err) {
 						return console.log(err);
 					}
-				});
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-		console.log('success!');
-	},
-};
+				})
+			
+
+			//.catch(function (error) {
+			//	console.log(error);
+			//});
+			//console.log('success!');
+		}
+		)
+	}
+		

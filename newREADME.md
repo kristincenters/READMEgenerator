@@ -51,7 +51,9 @@
 <br>
 			
 ## Contact me with questions:
+
+#### undefined
 			
-<img style="border-radius: 50%" src="https://avatars0.githubusercontent.com/u/5201511?v=4" alt="github headshot">
+<img style="border-radius: 50%" width="100px" height="100px" src="https://avatars3.githubusercontent.com/u/11791361?v=4" alt="github headshot">
 			
-### Email: kristincenters@gmail.com
+### Email: null
